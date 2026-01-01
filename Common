@@ -1,0 +1,93 @@
+# Common ZK Circuits — Shared Primitives
+### Requirements
+
+
+- Collision resistance
+- Preimage resistance
+- Compatibility with on-chain verifier
+
+
+Example hash functions:
+- Poseidon
+- MiMC
+n
+---
+
+
+## Circuit: `merkle.circom`
+
+
+### Purpose
+
+
+Provides Merkle tree membership verification.
+
+
+Used to prove:
+- A commitment exists in a known set
+- State inclusion without revealing position
+
+
+### Properties
+
+
+- Fixed-depth trees (MVP)
+- Binary Merkle trees
+- Root exposed as public input
+
+
+---
+
+
+## Circuit: `nullifier.circom`
+
+
+### Purpose
+
+
+Generates unlinkable nullifiers to prevent replay and double-use.
+
+
+Used in:
+- Payments (double-spend prevention)
+- Identity (one-proof-per-context)
+- Storage (access replay prevention)
+
+
+### Properties
+
+
+- Deterministic per secret + context
+- Unlinkable across different contexts
+
+
+---
+
+
+## Security Notes
+
+
+- Hash parameters must never change silently
+- All primitives must be reviewed independently
+- Versioning is mandatory for upgrades
+
+
+---
+
+
+## MVP Scope
+
+
+For the initial MVP:
+- Single hash function across all circuits
+- Fixed Merkle tree depth
+- Simple nullifier derivation
+
+
+---
+
+
+## Summary
+
+
+Common circuits form the **cryptographic backbone** of Z-Kora. Any weakness here propagates system-wide, so simplicity and rigor are prioritized over optimization.
