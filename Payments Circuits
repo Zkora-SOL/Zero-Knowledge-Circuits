@@ -1,0 +1,107 @@
+# ZK-Pay — Payment Circuits Specification
+---
+
+
+### Public Inputs
+
+
+- Merkle root
+- Nullifier
+- Output commitment hashes
+n
+### Private Inputs
+
+
+- Sender secret key
+- Input balance
+- Transfer amount
+- Merkle path
+n
+---
+
+
+### Privacy Guarantees
+
+
+- Amount is hidden
+- Sender and receiver are unlinkable
+- Observer cannot trace balance history
+
+
+---
+
+
+## Circuit: `withdraw.circom`
+
+
+### Statement Proven
+
+
+The prover demonstrates that:
+1. They own a valid unspent commitment
+2. The withdrawal amount is less than or equal to balance
+3. The nullifier is correctly derived
+4. The remaining balance commitment is valid
+
+
+---
+
+
+### Public Inputs
+
+
+- Merkle root
+- Nullifier
+- Withdrawal amount commitment
+
+
+### Private Inputs
+
+
+- Secret key
+- Balance
+- Merkle path
+
+
+---
+
+
+## Non-Goals
+
+
+ZK-Pay does NOT attempt to:
+- Provide network-layer anonymity
+- Hide gas payment metadata
+- Protect against compromised user devices
+
+
+---
+
+
+## Security Notes
+
+
+- Circuits must be audited independently
+- Hash functions must match on-chain verifier
+- All arithmetic must be overflow-safe
+
+
+---
+
+
+## MVP Scope
+
+
+For the initial MVP:
+- Single-asset shielded pool
+- Fixed hash function
+- Single Merkle tree
+
+
+---
+
+
+## Summary
+
+
+ZK-Pay payment circuits provide the **foundational privacy layer** for Z-Kora, enabling confidential transfers with cryptographic guarantees while remaining verifiable on-chain.
