@@ -1,0 +1,108 @@
+# ZK-Storage — Storage Access Circuits Specification
+- Membership-based access
+- Time-locked access
+- One-time access
+
+
+---
+
+
+### Access Nullifier
+
+
+A unique value generated when access is exercised.
+
+
+Purpose:
+- Prevents replay of access proofs
+- Enables one-time or rate-limited access
+
+
+---
+
+
+## Circuit: `access-proof.circom`
+
+
+### Statement Proven
+
+
+The prover demonstrates that:
+1. They control a valid identity or membership secret
+2. They satisfy the access policy for the file
+3. The file commitment exists in the authorized set
+4. The access nullifier has not been used before
+
+
+---
+
+
+### Public Inputs
+
+
+- File commitment root
+- Access nullifier
+- Policy identifier
+
+
+### Private Inputs
+
+
+- Identity secret or membership proof
+- Policy data
+- Merkle path
+
+
+---
+
+
+### Privacy Guarantees
+
+
+- File identity remains hidden
+- Access patterns are unlinkable
+- No leakage of policy structure
+
+
+---
+
+
+## Non-Goals
+
+
+ZK-Storage does NOT attempt to:
+- Store files on-chain
+- Replace decentralized storage networks
+- Hide network-layer metadata
+
+
+---
+
+
+## Security Notes
+
+
+- Encryption must be authenticated (AEAD)
+- Keys must be handled securely client-side
+- Proof replay must be strictly prevented
+
+
+---
+
+
+## MVP Scope
+
+
+For the initial MVP:
+- Single access policy per file
+- Membership-based authorization
+- One-time access nullifiers
+
+
+---
+
+
+## Summary
+
+
+ZK-Storage provides **cryptographically enforced access control** for encrypted data, completing Z-Kora’s privacy stack without ever exposing sensitive information.
