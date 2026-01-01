@@ -1,0 +1,93 @@
+# ZK-ID — Identity Circuits Specification
+
+
+---
+
+
+## Circuit: `selective-disclosure.circom`
+
+
+### Statement Proven
+
+
+The prover demonstrates that:
+1. They control a valid identity commitment
+2. A specific attribute satisfies a condition
+
+
+Examples:
+- Age ≥ 18
+- Country ∈ allowed set
+- KYC status = verified
+
+
+---
+
+
+### Public Inputs
+
+
+- Merkle root
+- Attribute condition
+
+
+### Private Inputs
+
+
+- Identity secret
+- Attribute value
+- Merkle path
+
+
+---
+
+
+### Privacy Guarantees
+
+
+- Only the truth value of the condition is revealed
+- Attribute values remain private
+
+
+---
+
+
+## Non-Goals
+
+
+ZK-ID does NOT attempt to:
+- Replace government identity systems
+- Store biometric or personal data
+- Enforce identity issuance policies
+
+
+---
+
+
+## Security Notes
+
+
+- Identity secrets must be securely stored client-side
+- Nullifiers must be context-specific
+- Identity tree updates must be authenticated
+
+
+---
+
+
+## MVP Scope
+
+
+For the initial MVP:
+- Simple membership proofs
+- Single attribute condition
+- Static identity set
+
+
+---
+
+
+## Summary
+
+
+ZK-ID enables **anonymous yet accountable interactions**, forming the identity backbone of Z-Kora without compromising user privacy.
