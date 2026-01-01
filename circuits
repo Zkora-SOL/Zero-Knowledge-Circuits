@@ -1,0 +1,19 @@
+circuits/
+├── payments/ # ZK-Pay circuits
+│ ├── transfer.circom
+│ ├── withdraw.circom
+│ └── README.md
+│
+├── identity/ # ZK-ID circuits
+│ ├── membership.circom
+│ ├── selective-disclosure.circom
+│ └── README.md
+│
+├── storage/ # ZK-Storage circuits
+│ ├── access-proof.circom
+│ └── README.md
+│
+└── common/ # Shared constraints & helpers
+├── hash.circom
+├── merkle.circom
+└── README.md
