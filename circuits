@@ -17,3 +17,17 @@ circuits/
 ├── hash.circom
 ├── merkle.circom
 └── README.md
+
+Design Rules (Mandatory)
+
+All Z-Kora circuits MUST follow these rules:
+
+No business logic — circuits only prove correctness
+
+Minimal disclosure — prove the smallest possible statement
+
+Composable — reusable across modules
+
+Chain-agnostic — no blockchain assumptions
+
+Audit-first — clarity over cleverness
